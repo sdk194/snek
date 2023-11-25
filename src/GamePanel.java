@@ -9,12 +9,9 @@ import java.lang.Runnable;
 public class GamePanel extends JPanel implements Runnable {
   Thread gameThread;
   KeyHandler keyH = new KeyHandler();
-  int posx = 250;
-  int posy = 250;
-  int speed = 20;
   int FPS = 60;
   Snake player = new Snake(Color.BLUE, this, keyH);
-  Body body = new Body(Color.BLUE, this);
+  Body bod = new Body(Color.BLUE, this);
 
   GamePanel() {
     this.setPreferredSize(new Dimension(500, 500));
@@ -60,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
   }
 
   public void update() {
-    body.update(player.getX(), player.getY());
+    //bod.update(player.getX(), player.getY());
     player.update();
   }
 
@@ -68,6 +65,6 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
     player.draw(g2D);
-    body.draw(g2D);
+    //bod.draw(g2D);
   }
 }
